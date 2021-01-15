@@ -45,18 +45,6 @@ services:
     secrets:
       - host_ssh_key
 
-# netbox01:
-#   image: netboxcommunity/netbox
-#   container_name: netbox01
-#   hostname: netbox01
-#   tty: true
-#   ports:
-#     - "2250:22" # SSH Access
-#     - "8050:80" # Web Access
-#     - "8000:8080" # Netbox Access
-#   secrets:
-#     - host_ssh_key
-
 secrets:
   host_ssh_key:
     file: ~/.ssh/id_rsa
