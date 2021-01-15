@@ -1,0 +1,6 @@
+---
+- hosts: control
+  become: true
+  tasks:
+    - name: install tools
+      apt: name=python-httplib2 state=present update_cache=no

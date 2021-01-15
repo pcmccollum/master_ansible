@@ -1,0 +1,12 @@
+[loadbalancer]
+lb01 ansible_port=2210 ansible_host=localhost ansible_user=test ansible_password=test
+
+[webserver]
+app01 ansible_port=2220 ansible_host=localhost ansible_user=test ansible_password=test
+app02 ansible_port=2230 ansible_host=localhost ansible_user=test ansible_password=test
+
+[database]
+db01 ansible_port=2240 ansible_host=localhost ansible_user=test ansible_password=test
+
+[control]
+control ansible_connection=local

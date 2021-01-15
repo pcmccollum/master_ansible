@@ -1,0 +1,62 @@
+version: "3.8"
+services:
+  lb01:
+    build: .
+    container_name: lb01
+    hostname: lb01
+    tty: true
+    ports:
+      - "2210:22" # SSH Access
+      - "8010:80" # Web Access
+    secrets:
+      - host_ssh_key
+
+  app01:
+    build: .
+    container_name: app01
+    hostname: app01
+    tty: true
+    ports:
+      - "2220:22" # SSH Access
+      - "8020:80" # Web Access
+    secrets:
+      - host_ssh_key    
+
+  app02:
+    build: .
+    container_name: app02
+    hostname: app02
+    tty: true
+    ports:
+      - "2230:22" # SSH Access
+      - "8030:80" # Web Access
+    secrets:
+      - host_ssh_key
+
+  db01:
+    build: .
+    container_name: db01
+    hostname: db01
+    tty: true
+    ports:
+      - "2240:22" # SSH Access
+      - "8040:80" # Web Access
+      - "33064:3306" # MySQL Client access
+    secrets:
+      - host_ssh_key
+
+# netbox01:
+#   image: netboxcommunity/netbox
+#   container_name: netbox01
+#   hostname: netbox01
+#   tty: true
+#   ports:
+#     - "2250:22" # SSH Access
+#     - "8050:80" # Web Access
+#     - "8000:8080" # Netbox Access
+#   secrets:
+#     - host_ssh_key
+
+secrets:
+  host_ssh_key:
+    file: ~/.ssh/id_rsa
